@@ -21,6 +21,7 @@ dev q1w2e3r4t5
 /var/www/hisense/hisntvtestsrv/
 git pull
 ```
+<!-- more -->
 # 浏览器奇葩问题
 1. 海信电视FHD平台burl事件触发两次
    parseInt解析08、09为0

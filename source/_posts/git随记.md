@@ -33,6 +33,7 @@ git tag -d 0.1.3
 //删除远端服务器的标签
 git push origin :refs/tags/0.1.3
 ```
+<!-- more -->
 # 分支应用
 
 ```bash
@@ -90,15 +91,57 @@ git commit -m'提交缓存'
 ```
 然后修改.gitignore文件
 
+# node 安装
+1. 官网下载安装（npm已经集成其中）
+2. 配置环境变量 
+NPM_HOME  C:\Program Files\nodejs\node_modules\npm
+NVM_SYMLINK   C:\Program Files\nodejs
+3. GIT BUSH:
+node -v
+npm -v
 
+# npm 
+```bash
+//切换镜像源
+npm install -g nrm 
+nrm ls
+nrm test //测试速度
+nrm use cnpm //指定使用的镜像源
+```
+```bash
+//增加镜像源
+nrm add <registry> <url> [home]
+//删除镜像源
+nrm del <registry>
+```
+https://segmentfault.com/a/1190000000368906
+## 安装Vue-Cli开发模板
+这个模板可以快速生成vuejs的运行配置环境,可以使新手快速免除配置搭建出运行界面
+```bash
+npm install -g vue-cli
+```
 
+## npm 更新自身版本
+```bash
+npm install -g npm //更新到最新版本
+```
 
-
-
-
-
-
-
+## node 版本更新
+node的n模块专门用来管理node.js版本，安装n模块如下：
+```bash
+npm list //列出已经安装的模块
+npm show express //显示模块详情
+npm install -g n //安装n
+n stable //升级node.js到最新稳定版
+//或后面跟版本号
+n v0.10.26
+npm update  //升级当前目录下的项目的所有模块
+npm update express    //升级当前目录下的项目的指定模块
+ 
+npm update -g express  //升级全局安装的express模块
+ 
+npm uninstall express  //删除指定的模块
+```
 
 
 
