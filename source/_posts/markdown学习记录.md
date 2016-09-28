@@ -1,7 +1,8 @@
 ---
 title: markdown学习记录
 date: 2016-09-21 11:03:44
-tags: 
+tags: Editor
+categories:
 ---
 ## markdown语法
 ### 1.斜体
@@ -19,6 +20,8 @@ tags:
 ```bash
 	内容
 ```
+
+<!-- more -->
 
 ### 4.列表
 

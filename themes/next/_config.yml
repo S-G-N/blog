@@ -29,8 +29,8 @@ canonical: true
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
   home: /
-  #categories: /categories
-  #about: /about
+  categories: /categories
+  about: /about
   archives: /archives
   tags: /tags
   #commonweal: /404.html
@@ -120,7 +120,11 @@ font:
 # Social Links
 # Key is the link label showing to end users.
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
-#social:
+social: 
+  GitHub: https://github.com/your-user-name
+  微博: http://weibo.com/your-user-name
+  豆瓣: http://douban.com/people/your-user-name
+  知乎: http://www.zhihu.com/people/your-user-name
   #LinkLabel: Link
 
 
@@ -141,7 +145,7 @@ social_icons:
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.jpg
 # in site  directory(source/uploads): /uploads/avatar.jpg
-#avatar:
+avatar: /images/Cathy.jpg
 
 
 # Table Of Contents in the Sidebar

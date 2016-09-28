@@ -1,13 +1,14 @@
 ---
 title: Linux学习记录
 date: 2016-09-15 22:42:28
-tags: Linux 
+tags: Operating System
+categories: 'Javascript'
 ---
-# 1 远程登录：
+# 一、 远程登录：
 ```bash 
 ssh username@host
 ```
-# 2 用户
+# 二、 用户
 ##   2.1 切换用户
 
 >切换到root用户：
@@ -23,9 +24,9 @@ ssh username@host
 * id：显示当前用户信息
 * passwd：修改当前用户密码
 
+<!-- more -->
 
-
-# 3 基本命令
+# 三、 基本命令
 ## 3.1 补全
 * tab一次补全命令(不能补全参数)
 * tab两次列出以输入字符开头的命令
@@ -49,7 +50,7 @@ ssh username@host
 * Ctrl+r 历史命令搜索
 * esc . 调用前一个命令的参数
 
-# 4 BASH作业管理
+# 四、 BASH作业管理
 * &：在命令后加`&`表示后台运行此程序
 * Ctrl+z：暂停某程序运行
 * sleep 时间参数:
@@ -57,7 +58,7 @@ ssh username@host
 * bg 数字：恢复运行
 * fg 数字：将后台作业拉回前台来
 
-# 5 Linux文件系统结构
+# 五、 Linux文件系统结构
 
 * Linux系统作为一个倒转的单根树状结构
 * 文件根为`/`
@@ -103,7 +104,7 @@ ssh username@host
 * mkdir：创建目录
 * rmdir：删除目录（不能删除非空目录，删除非空目录使用rm -r）
 
-# Linux系统目录
+# 六、 Linux系统目录
 ## bin
 * 常用的可执行的二进制文件，所有用户都有权限执行
 
@@ -165,7 +166,7 @@ ssh username@host
 * 一般保存变化的信息
 * 例如邮件
 
-# 6 常用命令
+# 七、 常用命令
 
 ## 日期时间
  1. date 当前系统时间
@@ -175,6 +176,7 @@ ssh username@host
  5. hwclock(click) 硬件时间
  6. cal 日历
  7. uptime 查看系统运行时间、系统负载（1m 5m 10m）
+
 ## 输出、查看
  1. echo 输出
  2. cat 查看文件内容
@@ -182,10 +184,12 @@ ssh username@host
  4. less 翻页形式显示文件，能上下翻页（上下键、pageup/down）
  5. head 显示文件前几行（默认10行，可用-n指定）
  6. tail 显示文件后几行（默认10行，可用-n指定 -f追踪显示文件更新，一般用于查看日志）
- ## 硬件信息
+
+## 硬件信息
   1. lspci 查看pci设备(-v 详细信息)
   2. lsusb 查看USB设备(-v 详细信息)
   3. lsmod 查看加载的模块（驱动）
+
 ## 关机、重启
  1. shutdown 
     > -h 关机
@@ -204,6 +208,7 @@ ssh username@host
   > tar -cvf 文件包名（.tar） 打包文件 归档
   > tar -xvf 文件包名（.tar）  解归档
   > tar -cvzf 文件包名（.tar.gz）归档后压缩
+
 ## 查找
 1. locate 关键字 此命令需要预先建立数据库 数据库默认更新一次，通过updatedb手动更新数据库（新创建文件查不到，需要先更细）
 2. find 查找位置 查找参数（保证实时性，速度慢）
