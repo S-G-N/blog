@@ -4,6 +4,8 @@ date: 2016-10-13 09:39:30
 tags:
 ---
 
+
+# 标签应用
 ```bash
 //1.当前处于fixbug分支：
 git add .
@@ -25,4 +27,9 @@ git merge fixbug
 git add .
 git commit -m ''
 git push origin master
+
+//删除标签的命令
+git tag -d 0.1.3
+//删除远端服务器的标签
+git push origin :refs/tags/0.1.3
 ```
