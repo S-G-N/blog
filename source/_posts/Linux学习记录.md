@@ -290,8 +290,31 @@ ssh username@host
 > 3. 分区后使用partprobe命令让内核更新分区信息，否则需重启才能识别新分区
 > 4. proc/partitions文件也可查看分区信息
 
+# 十 文件系统
 
+操作系统通过文件系统管理文件系统及数据，磁盘会分区需要创建文件系统后才能够为操作系统使用，创建文件系统过程又称之为格式化。
+* 没有文件系统设备称之为裸设备
+* 常见文件系统有 fat32、NTFS、ext2、ext3、ext4、xfs、HFS等
+* 文件系统之间的区别：日志、支持的分区大小、支持的单个文件大小，性能等
+* Windows下主流文件系统：NTFS
+* Linux下主流文件系统：Ext3、EST4
+* Linux支持的其他文件系统：ext2、ext3、ext4、fat(msdos)、vfat、nfs、ios9660、proc、gfs、jfs
 
+## 创建文件系统
+```bash
+mke2fs -t ext4/dev/sda3
+```
+< 常用参数
+< -b blocksize 指定文件系统块大小(默认4k)
+< -c 建立文件系统时检查坏损块
+< -L lable 指定卷标
+< -j 建立文件系统日志(ext3、ext4自带文件系统日志，不用创建)
 
+mkfs也可创建文件系统，但支持的参数少，不能进行精细化控制
+```bash
+mkfs.ext3 /dev/sda3
+```
+dumpe2fs /dev/sda2 查看sda2分区上的文件系统信息
 
+## 带日志的文件系统（）拥有较强的稳定性，在出现错误时可以进行恢复。
 
