@@ -88,8 +88,8 @@ ssh username@host
 2. 相对路径：以当前目录为起点受当前工作路径限制
 3. 当前目录：.
 4. 上级目录：..
-5. 家目录：~ （cd）
-6. 上一个工作目录：-
+5. 家目录：cd ~ （cd）
+6. 上一个工作目录：cd -
 在写脚本的时候一般使用绝对路径
 
 ## 5.4 文件、目录操作
@@ -210,7 +210,7 @@ ssh username@host
   > tar -cvzf 文件包名（.tar.gz）归档后压缩
 
 ## 查找
-1. locate 关键字 此命令需要预先建立数据库 数据库默认更新一次，通过updatedb手动更新数据库（新创建文件查不到，需要先更细）
+1. locate 关键字 此命令需要预先建立数据库 数据库默认更新一次，通过updatedb手动更新数据库（新创建文件查不到，需要先更）
 2. find 查找位置 查找参数（保证实时性，速度慢）
  > . -name*linux* 查找当前所有文件名包含linux的文件
  > .name*.conf 文件后缀查找
@@ -242,9 +242,9 @@ ssh username@host
   o:
   dd:删除整行
   u:撤销
-  yy:复制
+  y:复制
   p:黏贴
-  数字 yy:复制多行
+  数字 y:复制多行
   r:替换当前字符
   /:查找（按n在关键字间切换
   ```
@@ -356,10 +356,10 @@ umount /dev/sda3        ==umount /mnt
 
 ###自动挂载
 配置etc/fstab目录来定义需要自动挂载的文件系统，fstab中每一行代表一个挂载配置，
-/dev/sda3  需要挂载的设备
-/mnt  挂载点
-ext4 文件系统类型
-defaults 挂载选项 
+> /dev/sda3  需要挂载的设备
+> /mnt  挂载点
+> ext4 文件系统类型
+> defaults 挂载选项 
 o o dump、fsck相关选项
 * 要挂在的选项也可以使用LABEL进行识别，使用LABEL=LINUXCAST取代/dev/sda3
 * mount -a 命令挂载所有fstab中定义的自动挂载项。
