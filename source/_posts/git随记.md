@@ -33,3 +33,13 @@ git tag -d 0.1.3
 //删除远端服务器的标签
 git push origin :refs/tags/0.1.3
 ```
+# 分支应用
+
+```bash
+//1. 切换到master，创建本地分支
+git branch branchName
+//2. 推到远程
+git push origin branchName
+//3.
+//
+```
