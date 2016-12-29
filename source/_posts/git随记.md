@@ -13,7 +13,7 @@ git commit -m ''
 git push origin fixbug
 //2.切换到master分支，合并fixbug，解决冲突，创建标签，提交到远程
 git checkout master
-git merge --no-ff fixbug
+git merge --no-ff fixbugname
     //resolve conflict
 git add .
 git commit -m ''
