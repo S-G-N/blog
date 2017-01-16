@@ -17,7 +17,7 @@ git merge --no-ff fixbugname
     //resolve conflict
 git add .
 git commit -m ''
-git tag -a 0.1.1 -m 'release version 0.1.1'
+git tag -a v0.1.1 -m 'release version 0.1.1'
 git push origin master
 git push origin --tags
 //3.切换到develop分支，合并fixbug，解决冲突，创建标签，提交到远程
