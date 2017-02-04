@@ -43,3 +43,39 @@ git push origin branchName
 //3.
 //
 ```
+# 账户设置
+设置Git的user name和email：
+```bash
+$ git config --global user.name "xuhaiyan"
+$ git config --global user.email "haiyan.xu.vip@gmail.com"
+```
+# 生成SSH密钥
+1.查看是否已经有了ssh密钥：cd ~/.ssh
+2.生成密钥：
+```bash
+$ ssh-keygen -t rsa
+```
+# 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
