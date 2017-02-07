@@ -57,8 +57,38 @@ $ ssh-keygen -t rsa
 ```
 # 
 
-
-
+# git 忽略文件
+1. 项目根目录下创建 .gitignore文件
+```bash
+vim .gitignore
+```
+2. .gitignore中添加忽略文件或目录
+.gitignore中#代表注释
+```bash
+# 忽略*.o和*.a文件，一般这类对象文件和存档文件都是编译过程中出现的，我们用不着跟踪它们的版本
+ *.[oa]
+# 忽略*.b和*.B文件，my.b除外
+*.[bB]
+!my.b
+# 忽略dbg文件和dbg目录
+dbg
+# 只忽略dbg目录，不忽略dbg文件
+dbg/
+# 只忽略dbg文件，不忽略dbg目录
+dbg
+!dbg/
+# 只忽略当前目录下的dbg文件和目录，子目录的dbg不在忽略范围内
+/dbg
+# 忽略所有以波浪符（~）结尾的文件，许多文本编辑软件（比如 Emacs）都用这样的文件名保存副本。
+*~
+```
+以上方法是当.gitignore还没有被提交到仓库的情况下，如果已经被提交，使用如下方法：
+先清除缓存中的'要取消跟踪的目录'
+```bash
+git rm -r --cached '要取消跟踪的目录'
+git commit -m'提交缓存'
+```
+然后修改.gitignore文件
 
 
 

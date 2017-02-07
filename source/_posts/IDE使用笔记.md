@@ -5,5 +5,5 @@ tags:
 ---
 # webstom
 缩进设置：
-![Alt title](/images/tab1.png)
-![Alt title](/images/tab2.png)
+![Alt title](images/tab1.png)
+![Alt title](hexo/source/images/tab2.png)
