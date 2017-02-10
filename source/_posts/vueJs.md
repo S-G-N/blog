@@ -186,8 +186,46 @@ npm install vue-router vue-resource --save
 ```
 ## 启动项目
 ```bash
-npm run dev
+npm run dev //热加载方式运行，代码修改，浏览器自动刷新。实质上npm run dev 命令中“run”对应的是package.json文件中，scripts字段中的dev，也就是 node build/dev-server.js命令的一个快捷方式。
 ```
-参考[这里](http://www.open-open.com/lib/view/open1476240930270.html#articleHeader1)
+本文参考[这里](http://blog.csdn.net/u013182762/article/details/53021374)
 
 
+## 项目目录
+
+
+
+## 单文件组件的三大组成部分
+### template
+```html
+<template>
+    <div id="app">
+        <img src="./assets/logo.png">
+        <router-view></router-view>
+    </div>
+</template>
+```
+template下只能有一个根节点
+
+### style
+    组件的样式，可以用css的预处理器sass或者less，需要安装这些依赖包和设置狼属性，项目运行时style会生成style标签插入到html的head标签中，若组件没有样式则不要写style，否则也会生成一个空的style标签插入到html的head中。
+     style设置scoped属相后，当前组件中的样式class即使与其他组件中class重名也不会相互影响。
+![script图解](/images/vue_1.jpg)
+### script
+    实现组件功能代码。
+ 
+    
+    
+### 路由
+vue主要开发单页面应用，没有页面之间跳转，全部靠路由实现（vue-router自带两个组件router-view和router-link）使用vue-router控制路由则必须router-view作为容器。router-link有一个to属性，其属性值是目标路由，在运行项目的时候，router-link表现为a标签，to属性则表现为a标签的href属性
+#### 单页面应用（APS）优缺点：
+优点：
+1. 分离前后端关注点，前端负责界面显示，后端负责数据存储和计算
+2. 减轻服务器压力，服务器只负责出数据，不管展示逻辑和页面合成，吞吐能力提高
+3. 一套后台支持多中客户端
+4. 具有桌面应用及时性、网站可移植性和可访问性
+5. 用户体验好，单页面应用为用户提供了更接近一个本地移动或桌面应用程序的体验
+缺点：
+1. 不利于SEO，可以通过Prerender等技术解决一部分
+2. 前进后退地址栏需要程序进行管理
+3. 首次加载耗时，一旦加载和执行单个页面应用程序通常会有更多的响应，这就需要返回到后端Web服务器
