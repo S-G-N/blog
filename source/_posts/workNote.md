@@ -17,15 +17,22 @@ password:client
 # 研发自测环境node后台更新
 ```bash
 211.100.75.219:26333
-dev q1w2e3r4t5
+dev q1w2e3r4t5 client
 /var/www/hisense/hisntvtestsrv/
 git pull
 ```
 <!-- more -->
+### 项目仓库：
+ssh://git@211.100.75.201:26333/hisntv.git
+ssh://git@211.100.75.201:26333/hisntvtestsrv.git
 # 浏览器奇葩问题
 1. 海信电视FHD平台burl事件触发两次
    parseInt解析08、09为0
+2. video 元素的父容器影响视频播放品质，如图：
+3. 对于视频的缩放只能操作视频的宽video.height()，高度是无法操控的，设置宽度后视频高度会按源比例缩放。使用object-fit：fill属性后UHD可达到全屏铺满整屏（因为是opera12.16，opera12.17及更早版本中使用的是Presto内核，这种内核特点就是渲染速度快，但兼容性差，需要加-o-前缀），而new UHD板子使用的是Blink内核（opera15及以后版本采用了Google的Blink内核）使用此属性并未将视频铺满整个屏幕，依然是原始比例伸缩，后来我发现小屏幕时能铺满，全屏时就不能铺满，全屏和小屏的区别可能就是影响此属性在newUHD（Blink内核）上的原因，试着给video加了边框，查看是否因为video元素没全屏铺满，并添加box-sixing:border-box才能全屏铺满，
+![兼容性](/images/object-fit1.png)
 
+4. user agent stylesheet是浏览器内置样式，当网页没有指定样式时，浏览器会以自己的默认样式进行渲染，不同的浏览器默认样式也不同，默认样式优先级最低，当网页添加了自己的样式时默认样式就会被覆盖。
 ```html
 HTML转义字符大全
 ISO Latin-1字符集:

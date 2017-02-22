@@ -144,6 +144,121 @@ https://sug.so.360.cn/suggest?callback=suggest_so&word=a
 ```
 ![接口图片](/images/jiekou.png)
 
+## 事件
+```bash
+v-on:click=""
+等同@click
+```
+## 事件对象
+```bash
+@click="show($event)"
+```
+## 事件冒泡
+### 阻止冒泡：
+1)原生： ev.consolebuble
+2)vue： @click.stop=""
+### 默认行为
+1) 原生：ev.preventDefault()
+2) vue: @contextmenu.prevent="show()"
+例：
+```js
+new Vue =({
+    el:"#box",
+    data:{},
+    methods:{
+        show:function(ev){
+        ev.preventDefault();
+        alert(1);
+        }
+    }
+})
+
+```
+```html
+<div id='box'>
+<input type="button" value="按钮" @contextmenu="show($event)">
+</div>
+
+```
+### 键盘事件
+1) 原生：ev.keyCode==13
+2) vue: @keydown.13="show()"
+        @keydown.enter="show()"
+        @keydown.up="show()"
+        @keydown.down="show()"
+        @keydown.left="show()"
+        @keydown.right="show()"
+        @keydown.delete="show()"
+常用键简写：
+    13是键码
+
+
+## 属性
+
+v-bind:src 绑定属性 不用加{{}}
+简写为 :src
+例：
+```js
+new Vue =({
+    el:"#box",
+    data:{
+        url:'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'
+    },
+    methods:{
+        }
+})
+
+```
+```html
+<div id='box'>
+<img src="{{url}}" alt=a">//图片正常显示，<vue报错404></vue报错404>推荐下面方法
+<img v-bind:src="url" alt=a">
+</div>
+
+```
+
+## class
+class不能用以上方法，class用法如下：
+法一：
+class为data数据
+```js
+new Vue =({
+    el:"#box",
+    data:{
+       r:"red",
+       b:"blue"  
+    },
+    methods:{
+        }
+})
+
+```
+```html
+<div :class="[r,b]"></div>
+```
+法二：
+class为类名
+```css
+.r{
+color: red;
+}
+.b{
+background-color: blue;
+}
+```
+```html
+<div :class="{r:true,b:false}"></div>
+//:class等于一个json
+```
+
+## style
+:style='[c,b]'
+style等于一个json
+```bash
+c:{color:'red'},
+b:{backgroundColor:'blue'}
+//驼峰
+```
 
 
 # 创建一个vue项目的过程
@@ -163,7 +278,7 @@ npm install vue-cli -g
 #### 官方模板
 [vuejs-templates](https://github.com/vuejs-templates):
 >boweserify -拥有高级功能的Browserify + vueify 用于正式开发.
->boweserify-simple -拥有基础功能的Browserify + vueify 用于快速原型开发.
+>oweserify-simple -拥有基础功能的Browserify + vueify 用于快速原型开发.
 >webpack -拥有高级功能的Webpack + vue-loader 用于正式开发.
 >webpack -拥有基础功能的Webpack + vue-loader 用于快速原型开发开发.
 ```bash
@@ -229,3 +344,33 @@ vue主要开发单页面应用，没有页面之间跳转，全部靠路由实�
 1. 不利于SEO，可以通过Prerender等技术解决一部分
 2. 前进后退地址栏需要程序进行管理
 3. 首次加载耗时，一旦加载和执行单个页面应用程序通常会有更多的响应，这就需要返回到后端Web服务器
+
+# webstom设置vue文件模板
+setting>editor>file and code template
+```bash
+<template>
+    <div id="app">
+
+    </div>
+</template>
+
+<script type="text/ecmascript-6">
+    export default {};
+</script>
+
+<style lang="stylus" rel="stylesheet/stylus">
+
+</style>
+```
+
+# eslint 语法
+1. 字符串使用单引号
+2. 冒号后加空格
+3. 文件结尾加空行（Newline required at end of file but not found
+）
+# 问题
+## npm run dev 报错
+有可能8080端口被占用，运行netstat -aon|findstr "8080"查看PID，运次tasklist|findstr PID 查看对应进程，关闭进程
+## 接口访问
+当修改了dev-srever.js时（node文件修改后需重新编译），需要重新启动服务npm run dev
+## webpack配置文件修改后或eslint配置修改后不会触发热更新，需手动重启服务
