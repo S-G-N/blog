@@ -374,3 +374,165 @@ setting>editor>file and code template
 ## 接口访问
 当修改了dev-srever.js时（node文件修改后需重新编译），需要重新启动服务npm run dev
 ## webpack配置文件修改后或eslint配置修改后不会触发热更新，需手动重启服务
+
+# css sticky footer
+
+# 内容滚动
+容器需设置overflow: auto，否则不滚动
+
+# postCss
+根据官网can i use 
+# ios背景模糊
+backdrop-filter: blur(10px)
+# 图片背景模糊
+filter: blur(5px)
+
+
+# better-scroll地址
+https://github.com/ustbhuangyi/better-scroll
+
+# 居中
+```css 
+
+.menu-item
+                display: table
+                width: 56px
+                height:54px;
+                padding: 0px 12px
+                line-height: 14px
+                border-1px(rgba(7, 17, 21, 0.1))
+                &.current
+                    position: relative;
+                    margin-top: -1px
+                    background-color: #fff
+                    z-index:10
+                    font-weight: 700
+                    .text
+                        border-1pxOFF()
+                .text
+                    display:table-cell
+                    vertical-align: middle
+                    font-size: 12px
+                    font-weight: 200
+                    line-height: 14px
+
+```
+# v-el
+v-el:foods-wrapper
+ this.$els.foodWrapper获取不到dom
+使用this.$el.querySelector('.foods-wrapper')
+
+# 发布服务器
+
+安装服务器
+$ npm install webpack-dev-server -g
+$ webpack-dev-server --progress --colors
+服务器可以自动生成和刷新，修改代码保存后自动更新画面
+http://localhost:8080/webpack-dev-server/bundle
+
+
+
+
+
+# sell项目在海信上拿不到数据
+这里使用了vue插件vue-resource，其中有一个方法是用来发起http请求的，
+```js
+ this.$http.get('http://192.168.20.83:7000/data').then((res) => {
+                console.log(res.body);//返回的数据类型为blob
+                this.seller = res;
+                console.log(this.seller);//object
+    })
+```    
+### 测试1（请求外部服务器）
+'http://192.168.20.83:7000/data'这里是在本地用node开启的服务，脚本如下：
+```javascript
+/**
+ * Created by user on 2017/3/2.
+ */
+var express = require('express');
+var cors = require('cors');
+var bodyParser = require('body-parser');
+var fs = require('fs');
+var app = express();
+
+app.use(cors());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
+const PORT = 7000;
+
+app.listen(PORT, function() {
+    init();
+    console.log('Server listening on port %s', PORT);
+});
+
+const JSON_HEADER = {
+    'Content-Type': 'application',
+};
+var data;
+function init() {
+    data = fs.readFileSync('./data.json', 'utf8');
+}
+
+app.get('/', function(req, res) {
+    res.writeHead(200, JSON_HEADER);
+    res.end(data);
+});
+
+
+```
+请求脚本：
+1. jquery ajax请求
+测试浏览器chrome56.0.2924.87及opera12.16
+```javascript
+ $.ajax({
+                type: 'get',
+                url: 'http://192.168.20.83:7000',
+                success: function(data) {
+                    console.log(data);//返回blob
+                    console.log(typeof data);//返回string
+                }
+            });
+```
+使用jquery ajax请求外部服务器，在两测试browers返回了string,通过对数据处理，可以再页面上渲染数据，处理步骤如下：
+```javascript
+    //striing->json
+    var res = JSON.parse(data);
+    //res.goods是一个普通数组
+    console.log(res.goods);
+    var goods = res.goods;
+    for (let i in goods) {
+        //将数组每一项转化为vue对象属性，使其拥有get和set刚方法
+        vm.goods.$set(i, res.goods[i]);
+    }
+```
+2. vue-resource请求
+```javascript
+ this.$http.get('http://192.168.20.83:7000').then((res) => {
+                  console.log(res);//object
+                  console.log(typeof res);//string
+            });
+```
+
+使用vue-resource请求外部服务器，在两测试browers返回了Blob，所以均无法渲染数据,两浏览器返回object如下：
+![Alt title](/images/vue_http1.png)
+
+
+### 测试2（请求本地文件）
+```javascript
+  this.$http.get('/api/goods').then((res) => {
+                console.log(res);//blob
+                console.log(res.body);//chrome:Object{};opera12.16:blob
+            });
+```
+使用vue-resource请求本地文件，在两测试browers返回了Object，但Object内容不同，
+chrome 中body值为返回的json，但opera中body为blob类型，chrome中应用请求到的数据得到渲染，但opera中应用没有数据如图：
+![Alt title](/images/vue_http2.png)
+
+```javascript
+    
+```
+
+
+# click事件不触发
+使用 v-on:keyup.13.stop.prevent="addCart($event)
