@@ -497,6 +497,7 @@ app.get('/', function(req, res) {
 使用jquery ajax请求外部服务器，在两测试browers返回了string,通过对数据处理，可以再页面上渲染数据，处理步骤如下：
 ```javascript
     //striing->json
+    //或在ajax里加dataType: 'json',
     var res = JSON.parse(data);
     //res.goods是一个普通数组
     console.log(res.goods);
