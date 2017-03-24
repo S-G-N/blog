@@ -534,6 +534,15 @@ chrome 中body值为返回的json，但opera中body为blob类型，chrome中应�
     
 ```
 
+# mixin
+织入模式就是一些提供能够被一个或者一组子类简单继承功能的类,意在重用其功能。
 
 # click事件不触发
 使用 v-on:keyup.13.stop.prevent="addCart($event)
+
+
+# 常见编程习惯
+> 组件内部调用的方法一般命名格式为：_funName
+> 组件外部调用的方法一般命名格式为：funName
+> 
+> vue中只有绑定属性里用-，其他用驼峰
