@@ -358,7 +358,7 @@ setting>editor>file and code template
     export default {};
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus" scoped>
 
 </style>
 ```
@@ -546,3 +546,4 @@ chrome 中body值为返回的json，但opera中body为blob类型，chrome中应�
 > 组件外部调用的方法一般命名格式为：funName
 > 
 > vue中只有绑定属性里用-，其他用驼峰
+> 一般来说，v-if 有更高的切换消耗而 v-show 有更高的初始渲染消耗。因此，如果需要频繁切换 v-show 较好，如果在运行时条件不大可能改变 v-if 较好。

@@ -390,3 +390,37 @@ markup-significant and internationalization characters:
 ? &rsaquo;
 € &euro;
 ```
+
+
+
+html标签自定义属性：不能驼峰   data-tip-type js里用驼峰获取
+
+
+# 排序
+// var arr= [
+        //     {mark:3,sd:'第3'},
+        //     {mark:4,sd:'第4'},
+        //     {mark:1,sd:'第1'},
+        //     {mark:7,sd:'第7'},
+        //     {mark:2,sd:'第2'},
+        //     {mark:5,sd:'第5'},
+        //     {mark:8,sd:'第8'},
+        //     {mark:6,sd:'第6'},
+        // ]
+        function bubbleSort(array){
+            var i = 0,
+                len = array.length,
+                j,d;
+            for(;i<len;i++){
+                for(j=0;j<len;j++){
+                    if(Number(array[i].mark)<Number(array[j].mark)){
+                        d=array[j];
+                        array[j]=array[i];
+                        array[i]=d;
+                    }
+                }
+            }
+           // return array.reverse();//小到大
+            return array.reverse();//大到小
+        }
+        bubbleSort(arr);

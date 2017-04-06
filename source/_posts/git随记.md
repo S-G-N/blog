@@ -32,6 +32,8 @@ git push origin master
 git tag -d 0.1.3
 //删除远端服务器的标签
 git push origin :refs/tags/0.1.3
+//删除远程分支
+git push --delete origin 分支名
 ```
 <!-- more -->
 # 分支应用
