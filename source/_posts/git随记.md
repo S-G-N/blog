@@ -27,6 +27,8 @@ git merge fixbug
 git add .
 git commit -m ''
 git push origin master
+//获取远程tag
+git fetch origin tag tag_name
 
 //删除标签的命令
 git tag -d 0.1.3

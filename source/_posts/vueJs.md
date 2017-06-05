@@ -547,3 +547,38 @@ chrome 中body值为返回的json，但opera中body为blob类型，chrome中应�
 > 
 > vue中只有绑定属性里用-，其他用驼峰
 > 一般来说，v-if 有更高的切换消耗而 v-show 有更高的初始渲染消耗。因此，如果需要频繁切换 v-show 较好，如果在运行时条件不大可能改变 v-if 较好。
+> 
+# 常见问题
+1. vue里常用 =>函数，因为经常再函数里用到它父级context的vue实例
+2. 使用$ref获取dom后不支持链式调用原生方法。
+3. props传递的URL不能直接应用到行内background，需要绑定给vue属性才能正确请求，如果直接将props接收的URL写入行内webpack会将路径编译为静态路径，不能完成请求
+4. 海信uhd（opera12.16）属性不能再标签上计算例如：v-if="!isShowWelcome&&canTrial"，要在computed 中计算
+5. （opera12.16）z-index有问题
+6. 我将路由传进来的参数初始化到data上，在在方法中使用了这个data，报错提示找不到data下的key
+```bash
+ data() {
+            return {
+                detailPageData: this.$route.params.data
+        },
+        methods: {
+            activeList (e) {
+                console.log('activeList')
+                console.log(this.detailPageData.rootid)
+                console.log(consts.DFRootId.DRAMA)
+                // 报错找不到rootid
+                if (this.detailPageData.rootid === consts.DFRootId.DRAMA) {
+                    Log.logd('detail===== this is Drama detail.You have press the down key,the list is actived')
+                    e.keyCode === consts.DFKeyCode.DOWN ? this.listFocus = true : this.listFocus = false
+                } else {
+                    if (e.keyCode === consts.DFKeyCode.RIGHT) {
+                        this.listFocus = true
+                    }
+                    console.log(this.listFocus)
+                }
+            }
+        }
+```
+改为：
+```bash
+if (this.$route.params.data.rootid === consts.DFRootId.DRAMA){}
+```
