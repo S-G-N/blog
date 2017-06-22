@@ -1,7 +1,7 @@
 ---
 title: HTNL标签
 date: 2017-02-10 16:07:26
-tags: html
+tags: technology
 ---
 # mata标签
 ```html
