@@ -582,3 +582,6 @@ chrome 中body值为返回的json，但opera中body为blob类型，chrome中应�
 ```bash
 if (this.$route.params.data.rootid === consts.DFRootId.DRAMA){}
 ```
+7. 使用了一个组件提tipBox
+![Alt title](/images/q7.png)
+里面内容是通过slot在引用处添加，当应用时直接在slot内容元素添加ref获取不到，则给其父元素加ref通过getElementByClassName('')[0]获取，此处设计v-if的使用，节点未创建获取不到，改用v-show。并延迟1毫秒
