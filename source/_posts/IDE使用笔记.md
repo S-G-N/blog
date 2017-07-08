@@ -1,7 +1,7 @@
 ---
 title: IDE使用笔记
 date: 2017-02-06 15:39:02
-tags:
+tags: tools
 ---
 # WebStorm2016.3 激活
 在激活框，选择 License server， 输入：http://idea.imsxm.com/

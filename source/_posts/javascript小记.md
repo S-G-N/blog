@@ -1,7 +1,7 @@
 ---
 title: javascript小记
 date: 2016-11-09 09:39:45
-tags: javascript
+tags: technology
 ---
 1. addEventLinstener是原生方法，使用匿名函数。
 2. 判断json里是否包含某个key值：
