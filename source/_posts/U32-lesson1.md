@@ -40,6 +40,5 @@ Shen: Can we take the elevator instade? I don't have too much energy.
 Benny: Come on Let's take the stairs, mate. It's batter for you then the lift.
 Shen: Fine. I heat stairs
 
-
-
+in debt
 
