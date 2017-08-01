@@ -85,3 +85,7 @@ please give me some tissues
 dou you have a stomachache
 your're covered in sweat
 I just got back from the gym
+runny nose
+sore throat
+have a cought
+have a fever 
