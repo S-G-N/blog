@@ -9,6 +9,10 @@ tags: technology
 这种有缺陷，如果这个key定义了，并且就是很2的赋值为undefined，那么这句就会出问题了。 
 > !("key" in obj) 
 > obj.hasOwnProperty("key") 
+3. // 小写替换大写
+    ZipCode.replace(/[a-z]/g, function (ch) {
+                      return String.fromCharCode(ch.charCodeAt(0) & ~32)
+                  })
 # 错误码
 503 - 服务器错误，多数是代理导致
 400 - 错误的请求。 
