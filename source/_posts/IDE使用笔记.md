@@ -18,3 +18,10 @@ tags: tools
 
 ## webpack在webatom上热更新
 webstrom settings的system settings默认勾选‘safewrite’,勾选去掉。
+
+
+mac terminal 补齐功能
+在命令行输入nano .inputrc
+进入.inputrc的编辑界面，输入如下语句：
+set completion-ignore-case on set show-all-if-ambiguous on TAB: menu-complete
+Control+O保存。重启terminal即生效
