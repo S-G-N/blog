@@ -17,7 +17,7 @@ git merge --no-ff fixbugname
     //resolve conflict
 git add .
 git commit -m ''
-git tag -a v0.1.1 -m 'release version 0.1.1'
+git tag -a 0.1.1 -m 'release version 0.1.1'
 git push origin master
 git push origin --tags
 //3.切换到develop分支，合并fixbug，解决冲突，创建标签，提交到远程
@@ -29,13 +29,16 @@ git commit -m ''
 git push origin master
 //获取远程tag
 git fetch origin tag tag_name
-
+// 删除远程tag
+V1.1
+git push origin --delete tag V1.1 
 //删除标签的命令
 git tag -d 0.1.3
 //删除远端服务器的标签
 git push origin :refs/tags/0.1.3
 //删除远程分支
 git push --delete origin 分支名
+// 
 ```
 <!-- more -->
 # 分支应用

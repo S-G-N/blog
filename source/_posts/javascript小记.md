@@ -13,6 +13,13 @@ tags: technology
     ZipCode.replace(/[a-z]/g, function (ch) {
                       return String.fromCharCode(ch.charCodeAt(0) & ~32)
                   })
+
+4.默认情况下，文档刚加载完成时，document.activeElement中保存的是document.body元素的引用。文档加载期间，document.activeElement的值为null。
+另外就是新增了document.hasFocus()方法，这个方法用于确定文档是否获得了焦点。
+
+var button = document.getElementById("myButton"); 
+button.focus(); 
+alert(document.hasFocus()); //true
 # 错误码
 503 - 服务器错误，多数是代理导致
 400 - 错误的请求。 
