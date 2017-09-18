@@ -350,6 +350,7 @@ mount /dev/sda3(要挂载的分区) /mnt(挂载点)
 ###卸载
 ```bash
 umount /dev/sda3        ==umount /mnt
+device is busy 时，使用 fuser -m ／mnt查看使用的文件系统进程，或lsof／mnt查看正在被使用的文件（lsof：list open file）当前目录在摇卸载的目录时，时卸载不掉的，需要退出当前目录再卸载
 ```
 如果出现divice is busy报错，则表示该文件系统正在被使用，无法卸载，可以使用fuser-m/mnt查看文件系统进程。或使用lsof/mnt查看正在使用的文件。
 如果当前命令行在要卸载的目录中是不能卸载的，需要切换到其他目录下进行卸载
@@ -364,6 +365,7 @@ o o dump、fsck相关选项
 * 要挂在的选项也可以使用LABEL进行识别，使用LABEL=LINUXCAST取代/dev/sda3
 * mount -a 命令挂载所有fstab中定义的自动挂载项。
 
+men 和 info 及 uer/share/doc
 
 # 十一、进程管理
 ##查看所有进程
@@ -378,8 +380,60 @@ x:显示没用控制终端的进程
 
 
 
+# 十二 创建用户与删除
+```bash
+useradd sugaunnan
+// 查看用户
+cat /etc/passwd
+// 创建密码
+passwd suguannan
+// 查看密码
+cat /etc/shadow
+// 存放初始化文件，每当新用户啊创建时，会将此目录中文件自动复制到新用户目录下
+/etc/skel
+/etc/group
+```
+创建新用户系统会有以下操作：
+1.在/etc/passwd中添加用户信息
+2.如果创建了密码，则写入/etc/shadow中
+3.为用户创建新的家目录/home/suguannan家目录
+4.将/etc/skel中文件复制到
+5.建立一个与用户名同名的组，新用户属于这个组
 
+useradd 有以下参数
+-d 指定家目录
+-s 指定登录shell
+-u 指定userid
+-g 指定主组
+-G 指定附属组
+也可以通过修改/etc/passwd 实现，但不建议
 
+删除用户
+userdel suguannan // 保留家目录
+userdel -r suguannan // 不保留
+
+一个用户最多属于31个附属组
+whoani
+who 
+id suguannan
+w
+
+# 十三  修改用户信息
+usermod 参数 suguannan
+-i 新用户名  usermod -l 新名字 旧名字
+-u 新userid
+-d 用户家目录位置
+-g 用户所属主组
+-G 所属附组
+-L 锁定用户使其不能登录
+-U 解除锁定
+
+## 创建 修改 删除组
+ groupadd suguannangroup
+-n 新组名 旧组名
+-g 新组id 旧组id
+删除
+groupdel suguannangroup
 
 
 
