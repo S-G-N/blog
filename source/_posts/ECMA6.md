@@ -421,7 +421,7 @@ food.forEach((value, key) => {
 })
 food.delete(dessert)
 food.clear()
-console.log(food);
+console.log(food); 
 ```
 
 # nodule 模块
