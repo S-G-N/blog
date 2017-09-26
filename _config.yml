@@ -68,9 +68,9 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-#  - type: git
-   # repo: git@github.com:Botue/botue.github.io.git
-    #branch: master
+  - type: git
+    repo: git@github.com:Botue/botue.github.io.git
+    branch: master
   - type: rsync
     host: 123.57.227.172
     user: root
