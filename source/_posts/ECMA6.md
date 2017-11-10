@@ -55,7 +55,9 @@ function kitchen(string, ...values) {
 
 console.log(dinner);
 ```
+
 # 判断字符串是否包含其他字符串
+
 ```bash
 let eat = 'bread',
     drink = 'coffe'
@@ -424,7 +426,7 @@ food.clear()
 console.log(food); 
 ```
 
-# nodule 模块
+# module 模块
 ```bash
 // 导出导入重命名
 let fruit = 'Kiwi'

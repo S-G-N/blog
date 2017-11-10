@@ -25,6 +25,32 @@ git pull
 ### 项目仓库：
 ssh://git@211.100.75.201:26333/hisntv.git
 ssh://git@211.100.75.201:26333/hisntvtestsrv.git
+
+### 海信应用安装
+0.连接串口。
+1.创建对应目录
+```bash
+mkdir -p /3rd_rw/appdata/launcher
+mkdir -p /3rd_rw/launcher/img/appsicon
+```
+2.进入U盘对应目录(在上面窗口进hisn...文件夹)
+```bash
+cd /mnt
+cd /usb/sdxx/
+```
+3.在U盘内执行，拷贝文件
+```bash
+cp italkbbtest.json /3rd_rw/appdata/launcher/Appinfo.json
+cp dficon.png /3rd_rw/launcher/img/appsicon/dficon.png
+```
+4.保存(多次保存)
+```
+sync
+```
+5.重启
+```
+reboot
+```
 # 浏览器奇葩问题
 1. 海信电视FHD平台burl事件触发两次
    parseInt解析08、09为0
