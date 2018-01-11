@@ -22,20 +22,27 @@ dev q1w2e3r4t5 client
 git pull
 ```
 <!-- more -->
-### 项目仓库：
-ssh://git@211.100.75.201:26333/hisntv.git
-ssh://git@211.100.75.201:26333/hisntvtestsrv.git
+## 项目仓库：
 
-
+## Hisense
 海信二期：ssh://git@211.100.75.201:26333/hisntv.git
-海信三期：ssh://git@211.100.75.201:26333/hisntvtestsrv.git
-manager：ssh://git@211.100.75.201:26333/stbmgr.git 
- manager前端：ssh://git@211.100.75.201:26333/stbmgrfrnt.git
+海信三期：ssh://git@211.100.75.201:26333/hisntv2.git
 
+## Manager
+manager：ssh://git@211.100.75.201:26333/stbmgr.git 
+manager前端：ssh://git@211.100.75.201:26333/stbmgrfrnt.git
+
+## STB Interface
+ssh://git@211.100.75.201:26333/stbiftool.git
+
+
+## SVN
 https://192.168.10.55/svn/TV_dev_report
 https://192.168.10.55/svn/project_management/document
 https://192.168.10.55/svn/italkTV_system/server_client_interface/hisence2.0
 https://192.168.10.55/svn/webtv/hisense/pub/release/部署
+
+
 ### 海信应用安装
 0.连接串口。
 1.创建对应目录
