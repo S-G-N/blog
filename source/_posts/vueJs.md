@@ -195,7 +195,7 @@ new Vue =({
 
 ## 属性
 
-v-bind:src 绑定属性 不用加{{}}
+v-bind:src 绑定属性 不用加{ { } }
 简写为 :src
 例：
 ```js
