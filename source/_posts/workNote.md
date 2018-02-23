@@ -54,6 +54,7 @@ mkdir -p /3rd_rw/launcher/img/appsicon
 ```bash
 cd /mnt
 cd /usb/sdxx/
+          cd /usb/hisn_device_make
 ```
 3.在U盘内执行，拷贝文件
 ```bash
@@ -68,6 +69,11 @@ sync
 ```
 reboot
 ```
+## CRT 链接
+![Alt title](/images/crt.png)
+## log保存
+file——>log Session 
+
 # 浏览器奇葩问题
 1. 海信电视FHD平台burl事件触发两次
    parseInt解析08、09为0
