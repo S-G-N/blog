@@ -44,7 +44,7 @@ https://192.168.10.55/svn/webtv/hisense/pub/release/部署
 
 
 ### 海信应用安装
-0.连接串口。
+0.连接串口 ctrl c。
 1.创建对应目录
 ```bash
 mkdir -p /3rd_rw/appdata/launcher
@@ -60,6 +60,10 @@ cd /usb/sdxx/
 ```bash
 cp italkbbtest.json /3rd_rw/appdata/launcher/Appinfo.json
 cp dficon.png /3rd_rw/launcher/img/appsicon/dficon.png
+
+// 18款
+cp Appinfo.json /dev/shm/local/applications/UI/launcher/Appinfo.json
+cp dficon.png /dev/shm/local/applications/UI/launcher/img/appsicon/dficon.png
 ```
 4.保存(多次保存)
 ```
@@ -69,6 +73,27 @@ sync
 ```
 reboot
 ```
+
+## 18款板子配置路径
+0.连接串口。
+1.插入U盘，挂载U盘
+```bash
+fdish -l
+mount /dev/sdax /mnt
+```
+2.复制出配置文件，卸载U盘
+```bash
+cp '/dev/shm/local/applications/UI/launcher/Appinfo.json' /mnt
+umount /mnt
+```
+3.Appinfo.json文件中
+> "URL": "http://hisnwebapp.italktv.colnv.com/hisntv/app/epg/",
+> "StartCommand": "http://hisnwebapp.italktv.colnv.com/hisntv/app/epg/",
+
+ 修改地址为：http://211.100.75.219/hisense/test/
+4.覆盖原文件
+开发套件上不提供编辑功能，需要手动copy出来修改，再覆盖原文件。
+
 ## CRT 链接
 ![Alt title](/images/crt.png)
 ## log保存
