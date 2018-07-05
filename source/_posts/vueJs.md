@@ -585,3 +585,16 @@ if (this.$route.params.data.rootid === consts.DFRootId.DRAMA){}
 7. 使用了一个组件提tipBox
 ![Alt title](/images/q7.png)
 里面内容是通过slot在引用处添加，当应用时直接在slot内容元素添加ref获取不到，则给其父元素加ref通过getElementByClassName('')[0]获取，此处设计v-if的使用，节点未创建获取不到，改用v-show。并延迟1毫秒
+
+
+
+
+hash mode的时候，#号后面的所有内容，服务器是不处理的，然后被index.html捕获了，通过index.html里的Vue-router插件解析，分配到对应的视图
+
+history mode的时候，由于没有了#号，所以服务器优先处理URL，整个地址包括原来#号后面不处理的部分，也都是交由服务器路由处理了，所以服务器默认会去对应的地址找文件
+
+然而，服务器上根本没有这个文件，hash mode下，这个路径是由index.html里的vue-router分配的视图显示出来的，而服务器找不到对应的文件，就报错404了
+
+你这个看起来并不正常，因为看起来是打开了index.html，但是原本#后面的部分，没有成功传给index.html
+
+服务器的配置，需要匹配到原本#后面对应的地方，然后转发给index.html，这样，才能被index.html里面的vue-router识别，从而分配到对应的视图上面去
