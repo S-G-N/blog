@@ -3,6 +3,7 @@ title: DevicePixelRatio-test
 date: 2017-09-21 14:36:09
 tags:
 ---
+一套极简页面显示设备屏幕配置。
 
 ```html
 <!doctype html>
@@ -19,7 +20,7 @@ tags:
 
         }
         p{
-            color:#000;
+            color: blue;
         }
     </style>
 </head>
@@ -33,10 +34,10 @@ tags:
     + " 屏幕分辨率的高："+ window.screen.height+"<br/>"
     + " 屏幕可用工作区宽度："+ window.screen.availWidth+"<br/>"
     + " 屏幕可用工作区高度："+ window.screen.availHeight+"<br/>"
-    + " 屏幕设置是 "+ window.screen.colorDepth +" 位彩色"+"<br/>"
-    + " 屏幕设置 "+ window.screen.deviceXDPI +" 像素/英寸"
-    + " 屏幕availHeight "+ window.screen.availHeight
-    + " 屏幕availWidth "+ window.screen.availWidth
+    + " 屏幕设置是："+ window.screen.colorDepth +" 位彩色"+"<br/>"
+    + " 屏幕设置："+ window.screen.deviceXDPI +" 像素/英寸"
+    + " 屏幕有效高度availHeight："+ window.screen.availHeight
+    + " 屏幕有效宽度availWidth："+ window.screen.availWidth
 </script>
 </html>
 ```

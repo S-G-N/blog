@@ -6,6 +6,8 @@ tags: tools
 # WebStorm2016.3 激活
 在激活框，选择 License server， 输入：http://idea.imsxm.com/
 或者 http://idea.iteblog.com/key.php
+http://idea.wrbugtest.tk/ (2018/06/16)
+https://idea.qmanga.com/
 # webstom
 ## 缩进设置：
 ![Alt title](/images/tab1.png)

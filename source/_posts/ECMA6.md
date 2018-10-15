@@ -3,6 +3,8 @@ title: ECMA6
 date: 2017-09-18 14:49:45
 tags:
 ---
+ES6常用规则学习笔记
+
 "use strict";
   
 # let 块级里有效
@@ -18,6 +20,11 @@ function breakfast()
 let [ds, dr, fr] = breakfast();
 console.log(ds, dr, fr)
 ```
+```bash
+let arr = ["cake", "tea", "fruit"]
+let [ds, dr, fr] = arr;
+console.log(ds, dr, fr)
+```
 # 解构对象
 ```bash
 function lunch()
@@ -25,6 +32,11 @@ function lunch()
     return {ds: "cake", dr: "tea", fr: "fruit"}
 };
 let {ds: ds, dr: dr, fr: fr} = lunch();
+console.log(ds, dr, fr)
+```
+```bash
+let obj = {ds: "cake", dr: "tea", fr: "fruit"}
+let {ds: ds, dr: dr, fr: fr} = obj;
 console.log(ds, dr, fr)
 ```
 # 模板字符串
@@ -35,6 +47,7 @@ let dinner = `今天的晚饭是${eat}和${drink}`
 console.log(dinner)
 ```
 # 带标签的模板字符串
+...values代表字符串模板中插入的值。
 ```bash
 let eat = 'bread',
     drink = 'coffe'
@@ -106,18 +119,18 @@ console.log(breakfast('甜甜圈','啤酒'));
 
 # 函数名字
 ```bash
-// let breakfast = function (argument) {
-//
-// }
-// let lunch = function superLunch(argument) {
-//
-// }
-// function dinner(argument) {
-//
-// }
-// console.log(breakfast.name)
-// console.log(lunch.name)
-// console.log(dinner.name)
+ let breakfast = function (argument) {
+
+ }
+ let lunch = function superLunch(argument) {
+
+ }
+ function dinner(argument) {
+
+ }
+ console.log(breakfast.name)
+ console.log(lunch.name)
+ console.log(dinner.name)
 ```
 # 箭头函数
 ```bash
@@ -129,7 +142,7 @@ let lunch = (dessert, food, drink) => {
 
 // 命令行运行
 // babel index.js --watch --out-file index-compile.js
-//编译结果：
+   // 编译结果：
 // var breakfast = function breakfast (dessert) {
 //     return dessert
 // }
@@ -148,7 +161,7 @@ let food = {
     dessert: dessert,
     drink,// 可以直接写变量名
     breakfast: function () {},
-    lunch() {} // : function 可直接去掉
+    lunch() {} // : function 可直接去掉 直接写方法
 };
 ```
 # 对象属性名
@@ -273,6 +286,26 @@ let wanghao = chef(['tomato','eggs'])
 console.log(wanghao.next())
 console.log(wanghao.next())
 console.log(wanghao.next())
+
+-----------------------------
+求字符串和
+
+let str = "1,2,3,4,5,6"
+function sum(arr) {
+    let i = 0,value = 0;
+    return {
+        next(){
+            let done = (i >= str.length)
+            value = !done ? value + parseInt(arr[i++]) : undefined
+            return {
+                value:value,
+                done: done
+            }
+        }
+    }
+}
+let wanghao = sum(str.split(','))
+console.log(wanghao.next())
 ```
 
 # 生成器
@@ -376,7 +409,7 @@ class Person {
 }
 class Chef extends Person{
     constructor(name, birthday) {
-        super(name, birthday)
+        super(name, birthday) //将值传给person 以供其内部函数被调用时使用。
     }
 }
 
@@ -435,7 +468,7 @@ export default {fruit as food}// 默认导出
 
 
 import {fruit} from '../../user.........'
-import {food sa dinner} from '../../user.........'
+import {food as dinner} from '../../user.........'
 ```
 
 

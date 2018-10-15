@@ -152,6 +152,51 @@ npm uninstall express  //删除指定的模块
 
 
 
+/**
+ * Created by suguannan on 2018/4/23 9:45.
+ *
+ */
+import {OPENCHANNELS} from 'common/consts'
+export function platform() {
+    var json = {
+        userAgent: navigator.userAgent.toLowerCase(),
+        isAndroid: Boolean(navigator.userAgent.match(/android/ig)),
+        isIphone: Boolean(navigator.userAgent.match(/iphone|ipod/ig)),
+        isIpad: Boolean(navigator.userAgent.match(/ipad/ig)),
+        isMobile: Boolean(navigator.userAgent.match(/Mobile/ig)),
+        isWeChat: Boolean(navigator.userAgent.match(/MicroMessenger/ig)),
+        isFacebook: Boolean(navigator.userAgent.match(/FB/ig)),
+        isTwitter: Boolean(navigator.userAgent.match(/twitter/ig)),
+        isSamsung: Boolean(navigator.userAgent.match(/samsung/ig)),
+        isChrome: Boolean(navigator.userAgent.match(/chrome/ig) || navigator.userAgent.match(/crios/ig)),
+        isSafari: Boolean(navigator.userAgent.match(/safari/ig))
+    }
+    return json
+}
+export function isPCOrPad() {
+    if (platform().isMobile && !platform().isIpad) {
+        return false
+    } else {
+        return true
+    }
+}
+export function openChannels() {
+    if (!platform().isMobile || platform().isIpad) {
+        return OPENCHANNELS.PCPad
+    } else if (platform().isWeChat) {
+        return OPENCHANNELS.WECHAT
+    } else if (platform().isFacebook) {
+        return OPENCHANNELS.FACEBOOK
+    } else if (platform().isTwitter) {
+        return OPENCHANNELS.TWITTER
+    } else if (platform().isSamsung) {
+        return OPENCHANNELS.SAMSUNG
+    } else if (platform().isChrome) {
+        return OPENCHANNELS.CHROME
+    } else if (platform().isSafari) {
+        return OPENCHANNELS.SAFARI
+    }
+}
 
 
 
